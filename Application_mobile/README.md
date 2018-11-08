@@ -8,3 +8,11 @@ Commande à éxécuter dans Node js :
 - Déterminer le dossier GitHub : git clone https://github.com/MyParaConnect/MyParaConnect
 
 Pour mieux comprendre, suivre les cours de OpenClassroom : https://openclassrooms.com/fr/courses/4902061-developpez-une-application-mobile-react-native/4902068-decouvrez-le-developpement-mobile-actuel
+
+Modifications du GitHub :
+- git pull
+Peut modifier les fichiers donc travailler
+- git status
+- git add "nomdufichier"
+- git commit -m "message"
+- git push
