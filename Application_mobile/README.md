@@ -3,7 +3,7 @@ Applications à installer :
 - Atom : https://atom.io/download/windows_x64
 - Nuclide : Setings > install > search packages : nuclide > install
 - Git : https://git-scm.com/download/win
-- Se connecter au compte Expo : Username : myparaconnect / password : Parasol33
+- Se connecter au compte Expo
 Commande à éxécuter dans Node js :
 - Déterminer le dossier GitHub : git clone https://github.com/MyParaConnect/MyParaConnect
 
