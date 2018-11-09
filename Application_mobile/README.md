@@ -11,7 +11,7 @@ Pour mieux comprendre, suivre les cours de OpenClassroom : https://openclassroom
 
 Modifications du GitHub :
 - git pull
-Peut modifier les fichiers donc travailler
+- Peut modifier les fichiers donc travailler
 - git status
 - git add "nomdufichier"
 - git commit -m "message"
