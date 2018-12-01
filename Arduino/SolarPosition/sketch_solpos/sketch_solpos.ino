@@ -1,4 +1,7 @@
 /*
+site de calcul : suncalc.org
+*/
+/*
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
@@ -6,6 +9,8 @@
 #include "solpos00.h"     /* <-- There is the 'include' I was talking about */
 
 void setup() {
+
+    Serial.begin(9600);
 
     struct posdata pd, *pdat; /* declare a posdata struct and a pointer for
                                  it (if desired, the structure could be
@@ -25,14 +30,14 @@ void setup() {
 
     /* I use Atlanta, GA for this example */
 
-    pdat->longitude = -0.56458;  /* Note that latitude and longitude are  */
-    pdat->latitude  =  44.82866;  /*   in DECIMAL DEGREES, not Deg/Min/Sec */
-    pdat->timezone  =  2.0;   /* Eastern time zone, even though longitude would
+    pdat->longitude = -0.56459;  /* Note that latitude and longitude are  */
+    pdat->latitude  =  44.82896;  /*   in DECIMAL DEGREES, not Deg/Min/Sec */
+    pdat->timezone  =  1.0;   /* Eastern time zone, even though longitude would
                                   suggest Central.  We use what they use.
                                   DO NOT ADJUST FOR DAYLIGHT SAVINGS TIME. */
 
     pdat->year      = 2018;    /* The year is 1999. */
-    pdat->daynum    =  195;    /* July 22nd, the 203'rd day of the year (the
+    pdat->daynum    =  335;    /* July 22nd, the 203'rd day of the year (the
                                   algorithm will compensate for leap year, so
                                   you just count days). S_solpos can be
                                   configured to accept month-day dates; see
@@ -58,13 +63,14 @@ void setup() {
     pdat->tilt      = pdat->latitude;  /* Tilted at latitude */
     pdat->aspect    = 135.0;       /* 135 deg. = SE */
 
-    printf ( "\n" );
-    printf ( "***** TEST S_solpos: *****\n" );
-    printf ( "\n" );
-
     retval = S_solpos (pdat);  /* S_solpos function call */
     S_decode(retval, pdat);    /* ALWAYS look at the return code! */
 
+    Serial.print( "SOLTEST -> azimuth : ");
+    Serial.println( pdat->azim );
+
+    Serial.print( "SOLTEST -> zenith : ");
+    Serial.println( pdat->elevref );
     /* Now look at the results and compare with NREL benchmark */
 /*
     printf ( "Note that your final decimal place values may vary\n" );
@@ -1097,5 +1103,3 @@ void S_decode(long code, struct posdata *pdat)
     fprintf(stderr, "S_decode ==> Please fix the shadowband sky factor: %f\n",
       pdat->sbsky);
 }
-
-
